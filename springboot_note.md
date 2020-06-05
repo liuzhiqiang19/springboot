@@ -54,3 +54,5 @@ pets:
 或
 pets: {cat,dog,fish}
 ```
+- @PropertySource(value = {"classpath: person.properties"})     //从指定配置文件获取初始值
+- @ConfigurationProperties(prefix = "person")     //从全局配置文件获取初始值
