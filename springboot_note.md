@@ -54,5 +54,236 @@ pets:
 或
 pets: {cat,dog,fish}
 ```
-- @PropertySource(value = {"classpath: person.properties"})     //从指定配置文件获取初始值
-- @ConfigurationProperties(prefix = "person")     //从全局配置文件获取初始值
+  - 全局配置文件、指定配置文件
+    - @PropertySource(value = {"classpath: person.properties"})     //从指定配置文件获取初始值
+    - @ConfigurationProperties(prefix = "person")     //从全局配置文件获取初始值
+
+- 配置文件的优先级（不同位置的）
+  - 由高到低：
+    - file:/config/   //当前工程根目录下的config文件夹中
+    - file:/          //当前工程根目录下
+    - classpath:/config/    //resources目录下的config文件夹中
+    - classpath:/           //resources目录下
+  - 高优先级覆盖低优先级，但4个位置的主配置文件都会加载。相同部分，低优先级的被覆盖；不同部分，低优先级的仍然有效（互补配置）
+
+- 外部配置文件加载顺序
+  - 命令行参数
+  - ...
+  - 带spring.profile的配置文件（先jar包外部后内部）
+  - 不带spring.profile的配置文件（先jar包外部后内部）
+  - spring.profile=dev  //该配置文件在生产环境下使用
+
+- 自动配置原理
+    - springboot启动的时候加载主配置类，开启主配置功能@EnableAutoConfiguration
+    - 将jar包下（spring-boot-autoconfigure-2.1.14.RELEASE.jar/META-INF/spring.factories）的EnableAutoConfiguration的值加入到容器中
+    - 这些值包括：
+      - org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\
+      - org.springframework.boot.autoconfigure.aop.AopAutoConfiguration,\
+      - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration,\
+      - ...
+    - 它们（xxxAutoConfiguration）都是自动配置类，自动执行配置功能
+    - 以HttpEncodingAutoConfiguration为例：
+
+```java
+@Configuration  //当前的类是一个配置类
+@EnableConfigurationProperties(HttpProperties.class)    //启用指定的配置类(该类相当于一个配置文件,自己写的配置文件能配哪些东西，由它里面的方法/属性决定)
+@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)//判断当前是不是web应用
+@ConditionalOnClass(CharacterEncodingFilter.class)//判断当前项目有没有这个类
+@ConditionalOnProperty(prefix = "spring.http.encoding", value = "enabled", matchIfMissing = true)//判断配置文件中有没有spring.http.encoding.enabled,没有也生效
+public class HttpEncodingAutoConfiguration {...}
+
+
+@ConfigurationProperties(prefix = "spring.http") //指定配置的对象：spring.http
+public class HttpProperties {...}//该类中指定了spring.http对象的可配置属性
+
+```
+- 自动配置的使用
+    - springboot自动加载大量的自动配置类（xxxAutoConfiguration-->xxxProperties.class）
+    - 根据需要的功能看看springboot有没有已经写好的配置类
+    - 该配置类中现成的属性，可拿过来用，没有的需要自己写
+    - 查看项目启用了（or没启用）哪些自动配置类: 配置文件添加 debug=true --> 运行-->在控制台查看报告（ CONDITIONS EVALUATION REPORT）
+
+## 三、日志
+- SLF4j、logback
+- 使用时应先调用抽象层（SLF4j）的方法
+  - 导入SLF4j的jar-->导入logback的jar
+  - 导入SLF4j的jar-->导入适配层的jar-->导入其他实现层的jar
+- 配置文件根据具体的实现层来写
+  
+![SLF4j的用法](concrete-bindings.png)
+
+- 统一所有日志到SLF4j
+  - 导入SLF4j的jar-->使用转换包替换原框架的包-->导入适配层的jar-->导入其他实现层的jar
+  
+![转换包的用法](legacy.png)
+
+```java
+import org.slf4j.Logger;   
+import org.slf4j.LoggerFactory;     
+
+public class HelloWorld {
+  public static void main(String[] args) {
+    Logger logger = LoggerFactory.getLogger(HelloWorld.class);
+    logger.info("Hello World");
+  }
+}
+```
+- springboot日志依赖关系
+  - 底层使用SLF4j+logback记录日志
+  - 使用转换包把其他日志转换为SLF4j
+  - 若要引入其他框架，需要把其他框架的默认日志框架排除掉(exclusion)
+
+![springboot日志依赖关系](springboot日志依赖关系.jpg)
+
+- 常用语句
+  - LoggerFactory.getLogger --> logger.info...
+  - 配置文件中：
+    - logging.file
+    - logging.level
+    - logging.path
+```java
+    //记录器
+    Logger logger = LoggerFactory.getLogger(getClass());
+
+        //日志的级别由低到高 trace<debug<debug<warn<error
+        logger.trace("这是trace日志...");
+        logger.debug("这是debug日志...");
+
+        //默认输出info级别以上的日志，可在配置文件中设置
+        logger.info("这是info日志...");
+        logger.warn("这是warn日志...");
+        logger.error("这是error日志...");
+```
+
+```java
+//在配置文件中设置日志的输出
+logging.level.com.example=trace
+logging.file=D:\\GithubRepository\\mavenTest\\springboot-03-log\\logTest\\springboot.log
+
+//在根目录下创建文件夹/spring/log，然后在里面写入默认名为springboot.log的文件
+logging.path=/spring/log
+
+//格式化输出
+//logging.pattern.console=
+//logging.pattern.file=
+```
+- 自定义配置文件(命名)
+  - logback-spring.xml：框架不加载日志的配置项，由springboot解析，可以使用高级profile功能，推荐使用这个来命名
+  - logback.xml： 直接被日志框架所识别
+  
+![放置规则](自定义配置文件放置.jpg)
+
+## 四、web开发
+- 流程 
+  - 用initializr创建springboot应用，选择需要的模块
+  - 根据场景写配置文件
+  - 写业务代码
+- 静态资源的映射规则-->webjars（https://www.webjars.org/）
+  - pom文件引入依赖
+  - 所有/webjars/**，都去classpath: META-INF/resources/webjars/jquery下找资源
+  - 直接访问它的资源：localhost:8080/webjars/jquery/3.5.1/jquery.js
+  
+```
+    //pom文件引入依赖
+        <!--引入jquery-webjar -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+```
+
+```java
+		@Override
+		public void addResourceHandlers(ResourceHandlerRegistry registry) {
+			if (!this.resourceProperties.isAddMappings()) {
+				logger.debug("Default resource handling disabled");
+				return;
+			}
+      //resourceProperties可设置静态资源相关的参数，如缓存时间等
+			Duration cachePeriod = this.resourceProperties.getCache().getPeriod();
+			CacheControl cacheControl = this.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();
+			if (!registry.hasMappingForPattern("/webjars/**")) {
+				customizeResourceHandlerRegistration(registry.addResourceHandler("/webjars/**")
+						.addResourceLocations("classpath:/META-INF/resources/webjars/")
+						.setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));
+			}
+			String staticPathPattern = this.mvcProperties.getStaticPathPattern();
+			if (!registry.hasMappingForPattern(staticPathPattern)) {
+				customizeResourceHandlerRegistration(registry.addResourceHandler(staticPathPattern)
+						.addResourceLocations(getResourceLocations(this.resourceProperties.getStaticLocations()))
+						.setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));
+			}
+		}
+
+		private Integer getSeconds(Duration cachePeriod) {
+			return (cachePeriod != null) ? (int) cachePeriod.getSeconds() : null;
+		}
+
+		private void customizeResourceHandlerRegistration(ResourceHandlerRegistration registration) {
+			if (this.resourceHandlerRegistrationCustomizer != null) {
+				this.resourceHandlerRegistrationCustomizer.customize(registration);
+			}
+		}
+```
+
+- 静态资源的映射规则-->/**
+  - 访问当前项目下的任何资源
+  - classpath是类路径，例如：src/main/java或src/main/resources，其下创建文件夹：
+      - "classpath:/META-INF/resources/"
+    	- "classpath:/resources/"
+    	- "classpath:/static/"(已有)
+    	- "classpath:/public/"
+	- 将静态资源放在上述文件夹下，springboot可自动访问
+    	- 例如在static下新建文件夹assets
+    	- 访问：localhost:8080/assets/jquery1.js（自动访问，无需写static）
+- 主页的访问：自动查找上述4个文件夹下的"index.html"文件
+- 图标
+    - 所有的**/favicon.ico都在静态资源文件夹下找
+  
+- thymeleaf模板引擎（springboot不能直接用jsp页面）
+    - pom文件引入依赖
+    - 把html页面放在templates文件夹下即可
+```
+        <!--引入thymeleaf -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+```
+- 使用springMVC框架
+    - Spring自动配置了以下功能：
+        - 视图解析器（ViewResolver）：ContentNegotiatingViewResolver和BeanNameViewResolver
+            - ContentNegotiatingViewResolver：组合所有视图解析器
+            - 定制：给容器添加自己的视图解析器，自动组合进来（**自己写的，加上@Bean/@Componet就行了**）
+        - 支持服务静态资源，包括对WebJars的支持
+        - 自动注册Converter，GenericConverter和Formatter
+            - Converter：转换器，类型转换，把int转换为Integer等
+            - Formatter：格式化器，把时间日期对象格式化
+            - 定制：自己写的Converter、Formatter，加上@Bean/@Componet就行了
+        - 支持HttpMessageConverters（用来转换http请求和响应）
+            - 定制：自己写的HttpMessageConverters,加上@Bean/@Componet就行了
+        - 自动注册MessageCodesResolver(可定制)
+        - 静态index.html首页
+        - 定制Favicon图标
+        - 自动使用ConfigurableWebBindingInitializer bean(可定制)
+  
+```java
+//定制的会自动添加的原理：先用@ConditionalOnMissingBean判断，没有才new一个系统自带的，并返回
+		@Bean
+		@ConditionalOnBean(ViewResolver.class)
+		@ConditionalOnMissingBean(name = "viewResolver", value = ContentNegotiatingViewResolver.class)  //判断有没有
+		public ContentNegotiatingViewResolver viewResolver(BeanFactory beanFactory) {
+			ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();   //new一个系统自带的
+			resolver.setContentNegotiationManager(beanFactory.getBean(ContentNegotiationManager.class));
+			// ContentNegotiatingViewResolver uses all the other view resolvers to locate
+			// a view so it should have a high precedence
+			resolver.setOrder(Ordered.HIGHEST_PRECEDENCE);
+			return resolver;  //返回系统自带的
+		}
+```
+- 扩展springMVC
+    - 保留springboot的自动配置，并且添加自己的配置
+    - 编写配置类（添加@configuration),实现**WebMvcConfigurer**类，但不加 @EnableWebMvc
+    - 完全控制Spring MVC，可以添加自己的@Configuration，注释@EnableWebMvc
+        - 不用自动配置的，全部自己配置，web模块所有自动配置全部失效，静态页面也不能访问
