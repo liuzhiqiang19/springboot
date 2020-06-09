@@ -244,6 +244,86 @@ logging.path=/spring/log
 - thymeleaf模板引擎（springboot不能直接用jsp页面）
     - pom文件引入依赖
     - 把html页面放在templates文件夹下即可
+
+- thymeleaf的使用
+    - 添加 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    - 语法
+        - th: text ,改变当前元素的文本内容
+            - th， html的任意属性
+- 表达式
+```
+I）Simple expressions:
+      1. Variable Expressions: ${...} 
+                获取变量值：OGNL
+                1）获取对象的属性、调方法
+                2）使用内置的基本对象
+                #ctx : the context object.
+                #vars: the context variables.
+                #locale : the context locale.
+                #request : (only in Web Contexts) the HttpServletRequest object.
+                #response : (only in Web Contexts) the HttpServletResponse object.
+                #session : (only in Web Contexts) the HttpSession object.
+                #servletContext : (only in Web Contexts) the ServletContext object.
+                eg: Established locale country: <span th:text="${#locale.country}">US</span>.
+                4)内置的工具对象
+                #execInfo : information about the template being processed.
+                #messages : methods for obtaining externalized messages inside variables expressions, in the same way as they
+                would be obtained using #{…} syntax.
+                #uris : methods for escaping parts of URLs/URIs
+                Page 20 of 106
+                #conversions : methods for executing the configured conversion service (if any)
+                #dates : methods for java.util.Date objects: formatting, component extraction, etc
+                #calendars : analogous to #dates , but for java.util.Calendar objects.
+                #numbers : methods for formatting numeric objects.
+                #strings : methods for String objects: contains, startsWith, prepending/appending, etc.
+                #objects : methods for objects in general.
+                #bools : methods for boolean evaluation.
+                #arrays : methods for arrays.
+                #lists : methods for lists.
+                #sets : methods for sets.
+                #maps : methods for maps.
+                #aggregates : methods for creating aggregates on arrays or collections.
+                #ids : methods for dealing with id attributes that might be repeated
+
+
+      2. Selection Variable Expressions: *{...}  ，跟${ }一样，配合th: object 使用
+
+      <div th:object="${session.user}">
+      <p>Name: <span th:text="*{firstName}">Sebastian</span>.</p>
+      <p>Surname: <span th:text="*{lastName}">Pepper</span>.</p>
+      <p>Nationality: <span th:text="*{nationality}">Saturn</span>.</p>
+      </div>
+
+      3. Message Expressions: #{...}  国际化内容
+      4. Link URL Expressions: @{...} 定义URL
+      5. Fragment Expressions: ~{...} 片段引用
+II）Literals (字面量)
+      Text literals: 'one text' , 'Another one!' ,…
+      Number literals: 0 , 34 , 3.0 , 12.3 ,…
+      Boolean literals: true , false
+      Null literal: null
+      Literal tokens: one , sometext , main ,…
+III）Text operations(文本操作):
+      String concatenation: +
+      Literal substitutions: |The name is ${name}|
+IV）Arithmetic operations（数学运算）:
+      Binary operators: + , - , * , / , %
+      Minus sign (unary operator): -
+      Boolean operations:
+      Binary operators: and , or
+      Boolean negation (unary operator): ! , not
+V）Comparisons and equality(比较运算):
+      Comparators: > , < , >= , <= ( gt , lt , ge , le )
+      Equality operators: == , != ( eq , ne )
+VI）Conditional operators(条件运算):
+      If-then: (if) ? (then)
+      If-then-else: (if) ? (then) : (else)
+      Default: (value) ?: (defaultvalue)
+VII）Special tokens:
+      No-Operation: _
+```
+
+![th的用法](th的用法.jpg)
 ```
         <!--引入thymeleaf -->
         <dependency>
@@ -287,3 +367,4 @@ logging.path=/spring/log
     - 编写配置类（添加@configuration),实现**WebMvcConfigurer**类，但不加 @EnableWebMvc
     - 完全控制Spring MVC，可以添加自己的@Configuration，注释@EnableWebMvc
         - 不用自动配置的，全部自己配置，web模块所有自动配置全部失效，静态页面也不能访问
+        - 
