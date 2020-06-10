@@ -178,7 +178,7 @@ logging.path=/spring/log
   - 用initializr创建springboot应用，选择需要的模块
   - 根据场景写配置文件
   - 写业务代码
-- 静态资源的映射规则-->webjars（https://www.webjars.org/）
+- 静态资源的映射规则(I)-->webjars（https://www.webjars.org/）
   - pom文件引入依赖
   - 所有/webjars/**，都去classpath: META-INF/resources/webjars/jquery下找资源
   - 直接访问它的资源：localhost:8080/webjars/jquery/3.5.1/jquery.js
@@ -227,7 +227,7 @@ logging.path=/spring/log
 		}
 ```
 
-- 静态资源的映射规则-->/**
+- 静态资源的映射规则(II)-->/**
   - 访问当前项目下的任何资源
   - classpath是类路径，例如：src/main/java或src/main/resources，其下创建文件夹：
       - "classpath:/META-INF/resources/"
@@ -244,6 +244,15 @@ logging.path=/spring/log
 - thymeleaf模板引擎（springboot不能直接用jsp页面）
     - pom文件引入依赖
     - 把html页面放在templates文件夹下即可
+
+```
+    //引入依赖
+        <!--引入thymeleaf -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+```
 
 - thymeleaf的使用
     - 添加 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -324,13 +333,7 @@ VII）Special tokens:
 ```
 
 ![th的用法](th的用法.jpg)
-```
-        <!--引入thymeleaf -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-```
+
 - 使用springMVC框架
     - Spring自动配置了以下功能：
         - 视图解析器（ViewResolver）：ContentNegotiatingViewResolver和BeanNameViewResolver
@@ -367,4 +370,4 @@ VII）Special tokens:
     - 编写配置类（添加@configuration),实现**WebMvcConfigurer**类，但不加 @EnableWebMvc
     - 完全控制Spring MVC，可以添加自己的@Configuration，注释@EnableWebMvc
         - 不用自动配置的，全部自己配置，web模块所有自动配置全部失效，静态页面也不能访问
-        - 
+        - 3
