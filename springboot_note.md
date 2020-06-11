@@ -370,4 +370,7 @@ VII）Special tokens:
     - 编写配置类（添加@configuration),实现**WebMvcConfigurer**类，但不加 @EnableWebMvc
     - 完全控制Spring MVC，可以添加自己的@Configuration，注释@EnableWebMvc
         - 不用自动配置的，全部自己配置，web模块所有自动配置全部失效，静态页面也不能访问
-        - 3
+  
+- crud实验
+    - html页面放在templates文件夹下，其他资源(如css、img、jss)放在静态资源的文件夹下
+    - 默认访问首页
