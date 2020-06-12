@@ -371,6 +371,46 @@ VII）Special tokens:
     - 完全控制Spring MVC，可以添加自己的@Configuration，注释@EnableWebMvc
         - 不用自动配置的，全部自己配置，web模块所有自动配置全部失效，静态页面也不能访问
   
-- crud实验
+- 1) crud实验
     - html页面放在templates文件夹下，其他资源(如css、img、jss)放在静态资源的文件夹下
     - 默认访问首页
+
+- 2) 国际化(根据浏览器默认语言而变化)
+      - 编写国际化配置文件，抽取页面需要显示的国际化消息（resource bundle，局部配置文件中）
+      - 设置spring.messages.basename (application.properties中)
+      - 去页面获取国际化的值(html页面中)
+
+- 3) 国际化-->点击“中文”、“英文”实现中英文切换的国际化效果
+      - 写自己的LocaleResolver(写出一个单独的类)
+      - 注册到容器(扩展springMVC而写的配置类中)
+
+```java
+//写自己的区域解析器 ，点击“中文”、“英文”实现中英文切换的国际化效果
+public class MyLocaleResolver implements LocaleResolver
+{
+    @Override
+    public Locale resolveLocale(HttpServletRequest request)
+    {
+        String l = request.getParameter("l");
+        Locale locale= Locale.getDefault();
+        if (!StringUtils.isEmpty(l))
+        {
+            String[] s = l.split("_");
+            locale=new Locale(s[0],s[1]);
+        }
+        return locale;
+    }
+
+    @Override
+    public void setLocale(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Locale locale)
+    {
+
+    }
+}
+...
+    @Bean    //把自己写的区域视图解析器加入到容器中
+    public LocaleResolver localeResolver()
+    {
+        return new MyLocaleResolver();
+    }
+```
