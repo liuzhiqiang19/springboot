@@ -178,7 +178,7 @@ logging.path=/spring/log
   - 用initializr创建springboot应用，选择需要的模块
   - 根据场景写配置文件
   - 写业务代码
-- 静态资源的映射规则(I)-->webjars（https://www.webjars.org/）
+- 静态资源的映射规则(I)-->webjars(公共资源)（https://www.webjars.org/）
   - pom文件引入依赖
   - 所有/webjars/**，都去classpath: META-INF/resources/webjars/jquery下找资源
   - 直接访问它的资源：localhost:8080/webjars/jquery/3.5.1/jquery.js
@@ -227,7 +227,7 @@ logging.path=/spring/log
 		}
 ```
 
-- 静态资源的映射规则(II)-->/**
+- 静态资源的映射规则(II)-->/**(自己的资源)
   - 访问当前项目下的任何资源
   - classpath是类路径，例如：src/main/java或src/main/resources，其下创建文件夹：
       - "classpath:/META-INF/resources/"
@@ -414,3 +414,77 @@ public class MyLocaleResolver implements LocaleResolver
         return new MyLocaleResolver();
     }
 ```
+- 小技巧
+    - IDEA的改动即时生效
+        - 禁用缓存(spring.thymeleaf.cache=false,全局配置文件)
+        - 重新编译(Build-->Build Project)
+
+- 4) 登录、登录检测
+    - 登录
+        - 写一个用于登录的controller类
+    - 登录检测
+        - 写一个用于登录的HandlerInterceptor(类)
+        - 在自定义的配置类中注册
+
+```java
+//登录检测
+    //写一个用于登录的HandlerInterceptor(类)
+public class LoginHandlerInterceptor implements HandlerInterceptor
+{
+    //目标方法执行之前
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception
+    {
+        Object loginUser = request.getSession().getAttribute("loginUser");
+        if (loginUser==null)
+        {
+            //未登录，返回登录页面
+            request.setAttribute("msg","无权限，先登录");
+            request.getRequestDispatcher("/index.html").forward(request,response);
+            return false;
+        }
+        else
+        {
+            //登录，放行
+            return true;
+        }
+    }
+}
+...
+    //在自定义的配置类中注册
+            //注册拦截器
+            @Override
+            public void addInterceptors(InterceptorRegistry registry)
+            {
+                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
+                        .excludePathPatterns("/index.html", "/", "/user/login");
+            }
+```
+- 4) CRUD-员工列表
+    - 实验要求：
+        - 1） Restful CRUD: 满足Rest风格
+
+|     | 普通CRUD               | Restful CRUD     |
+| --- | ---------------------- | ---------------- |
+| 增  | addEmp?xxx             | emp--post        |
+| 删  | deleteEmp?id=1         | emp/{id}--DELETE |
+| 改  | updateEmp?id=xxx&XX=xx | emp/{id}--PUT    |
+| 查  | getEmp                 | emp--GET         |
+
+        - 2） 实验的请求架构
+
+|              | 请求URI  | 请求方式 |
+| ------------ | -------- | -------- |
+| 查询所有员工 | emps     | GET      |
+| 查询指定员工 | emp/{id} | GET      |
+| 来到添加页面 | emp      | GET      |
+| 添加员工     | emp      | POST     |
+| 来到修改页面 | emp/{id} | GET      |
+| 修改员工     | emp      | PUT      |
+| 删除员工     | emp{id}  | DELETE   |
+
+    - 员工列表：
+        - thymeleaf公共页面元素抽取
+            - 抽取公共片段
+            - 引入片段
+            - 可以将公共片段(比如导航栏)写在一个单独的html文件中，子页面分别引入
