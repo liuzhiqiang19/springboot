@@ -13,6 +13,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration  //添加@configuration
 public class MyMvcConfig implements WebMvcConfigurer
 {
+//    public EmbeddedServletContainerCustomizer embeddedServletContainerCustomizer()
+//    {
+//
+//    }
+
     @Override
     public void addViewControllers(ViewControllerRegistry registry)
     {
@@ -27,6 +32,7 @@ public class MyMvcConfig implements WebMvcConfigurer
     {
         WebMvcConfigurer webMvcConfigurer = new WebMvcConfigurer()
         {
+
             @Override
             public void addViewControllers(ViewControllerRegistry registry)
             {

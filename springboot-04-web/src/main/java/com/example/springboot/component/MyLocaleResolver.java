@@ -1,6 +1,5 @@
 package com.example.springboot.component;
 
-import org.apache.coyote.Request;
 import org.springframework.web.servlet.LocaleResolver;
 import org.thymeleaf.util.StringUtils;
 

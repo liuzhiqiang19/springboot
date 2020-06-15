@@ -417,7 +417,7 @@ public class MyLocaleResolver implements LocaleResolver
 - 小技巧
     - IDEA的改动即时生效
         - 禁用缓存(spring.thymeleaf.cache=false,全局配置文件)
-        - 重新编译(Build-->Build Project)
+        - 重新编译(Build-->Build Project，前端的html页面，后端的仍需Rerun)
 
 - 4) 登录、登录检测
     - 登录
@@ -488,3 +488,55 @@ public class LoginHandlerInterceptor implements HandlerInterceptor
             - 抽取公共片段
             - 引入片段
             - 可以将公共片段(比如导航栏)写在一个单独的html文件中，子页面分别引入
+- 错误处理机制
+    - 默认处理
+        - 浏览器：返回一个报错的页面，如404
+        - app：返回json数据
+    - 定制
+        - 定制网页  
+            - 1)有模板引擎(精确匹配)：error/404.html,即把404.html放在templates/error/文件夹下，自动生效
+            - 2)有模板引擎(模糊匹配)：error/4xx.html,即把4xx.html放在templates/error/文件夹下，则所有的4xx错误均跳转到此页面
+            - 3）没有模板引擎，或templates文件夹下没用相应的报错页面，则自动去静态文件夹(的error文件夹)下找
+        - 定制json数据
+
+    - 原理
+        - ErrorMvcAutoConfiguration
+
+- 定制嵌入式的Servlet容器
+    - 默认使用的是tomcat
+    - 通用设置：在application.properties中-->server.xxx，如server.port=8000
+    - tomcat设置：server.tomcat.xxx
+    - 注册Servlet、Filter、Listener:ServletRegistrationBean,FilterRegistrationBean,ServletListenerRegistrationBean
+
+- 其他Servlet容器
+    - Jetty(长连接，一直保持连接状态)
+    - Undertow(高性能，不支持JSP)
+    - 方法
+        - pom文件中排除tomcat
+        - 引入依赖
+
+```xml
+<!--        排除tomcat容器-->
+                <exclusion>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+<!--        引入Jetty容器-->
+        <dependency>
+            <artifactId>spring-boot-starter-jetty</artifactId>
+            <groupId>org.springframework.boot</groupId>
+        </dependency>
+
+```
+## 五、Docker
+- 概念
+    - docker主机(Host)：安装了docker的机器
+    - docker客户端(Client)：连接主机的软件
+    - docker仓库(Registry)：保存各种打包好的软件镜像
+    - docker容器(Container)：镜像启动后的一个实例,一个运行中的应用
+
+- 使用docker步骤
+    - 安装docker
+    - 去仓库下载镜像
+    - 运行镜像，得到一个docker容器
+    - 对容器的启动、停止，就是对软件的启动、停止
