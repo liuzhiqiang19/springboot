@@ -1,3 +1,5 @@
+
+[TOC]
 ## 一、springboot
 
 - 开发流程
@@ -540,3 +542,23 @@ public class LoginHandlerInterceptor implements HandlerInterceptor
     - 去仓库下载镜像
     - 运行镜像，得到一个docker容器
     - 对容器的启动、停止，就是对软件的启动、停止
+
+- docker命令
+    - docker
+        - systemctl start docker
+        - systemctl stop docker
+        - systemctl enable docker 开机自启
+    - 镜像、容器
+        - docker search tomcat (去docker hub网站搜索详细信息)
+        - docker pull tomcat/ docker pull  tomcat: [tag]
+        - docker images 显示已有的镜像
+        - docker run tomcat: [tag]
+        - docker stop [id]
+        - docker ps -a 显示所有的容器 /docker ps 显示运行的容器
+        - docker run -d -p 8888:8080  (-d 后台运行，-p 将主机端口映射到容器端口)
+        - docker logs 
+        - docker rm 删容器 / docker rmi 删镜像
+```
+启动mysql:
+docker run -p 3306:3306 --name mysql01  -e MYSQL_ROOT_PASSWORD=a02c00f1 -d mysql:8.0.3
+```
