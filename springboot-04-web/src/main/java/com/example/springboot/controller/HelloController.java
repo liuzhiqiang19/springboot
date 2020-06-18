@@ -29,11 +29,12 @@ public class HelloController
         }
         return "返回 hello world";
     }
+
     @RequestMapping("/success")
-    public String success(Map<String,Object> map)
+    public String success(Map<String, Object> map)
     {
-        map.put("hiya","<h1>shi ni ya</h1>");
-        map.put("users", Arrays.asList("liu","li","wen"));
+        map.put("hiya", "<h1>shi ni ya</h1>");
+        map.put("users", Arrays.asList("liu", "li", "wen"));
         return "success";
     }
 }

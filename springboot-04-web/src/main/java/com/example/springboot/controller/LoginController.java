@@ -17,19 +17,18 @@ public class LoginController
 //    @RequestMapping(value = "/user/login",method = RequestMethod.POST)
     public String login(@RequestParam("username") String username,
                         @RequestParam("password") String password,
-                        Map<String,Object> map,
+                        Map<String, Object> map,
                         HttpSession session)
     {
-        if (!StringUtils.isEmpty(username)&&"123456".equals(password))
+        if (!StringUtils.isEmpty(username) && "123456".equals(password))
         {
             //            return "dashboard"; //登录成功
             //登录成功以后，防止表单提交，重定向
-            session.setAttribute("loginUser",username);
+            session.setAttribute("loginUser", username);
             return "redirect:/main.html";
-        }
-        else
+        } else
         {
-            map.put("msg","用户名/密码错误");
+            map.put("msg", "用户名/密码错误");
             return "login";     //登录失败
         }
     }

@@ -560,5 +560,15 @@ public class LoginHandlerInterceptor implements HandlerInterceptor
         - docker rm 删容器 / docker rmi 删镜像
 ```
 启动mysql:
-docker run -p 3306:3306 --name mysql01  -e MYSQL_ROOT_PASSWORD=a02c00f1 -d mysql:8.0.3
+docker run -p 3306:3306 --name mysqlLatest -v /etc/docker_configs/mysql:/etc/mysql/conf.d  -e MYSQL_ROOT_PASSWORD=a02c00f1  -d mysql 
 ```
+## 六、数据访问
+- 访问数据库只需在全局配置文件中加入配置：
+
+```
+spring.datasource.username=root
+spring.datasource.password=a02c00f1
+spring.datasource.url=jdbc:mysql://182.92.78.192:3306/jdbc
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+```
+- 使用指定的sql文件(如dep.sql),需在全局配置文件中添加：spring.datasource.schema=classpath:dep.sql

@@ -23,6 +23,7 @@ public class Springboot04WebApplication
     {
         return new myViewResolver();
     }
+
     private static class myViewResolver implements ViewResolver
     {
 

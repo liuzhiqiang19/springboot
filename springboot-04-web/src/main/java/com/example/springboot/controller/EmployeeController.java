@@ -50,10 +50,10 @@ public class EmployeeController
 
     //来到修改页面，查找员工，在页面回显
     @GetMapping("/emp/{id}")
-    public String toEditPage(@PathVariable("id") Integer id,Model model)
+    public String toEditPage(@PathVariable("id") Integer id, Model model)
     {
         Employee employee = employeeDao.get(id);
-        model.addAttribute("emp",employee);
+        model.addAttribute("emp", employee);
         //查部门，页面显示所有部门的列表
         Collection<Department> departments = departmentDao.getDepartments();
         model.addAttribute("depts", departments);
@@ -69,6 +69,7 @@ public class EmployeeController
         employeeDao.save(employee);
         return "redirect:/emps";
     }
+
     //员工删除功能
     @DeleteMapping("/emp/{id}")
     public String deleteEmployee(@PathVariable("id") Integer id)

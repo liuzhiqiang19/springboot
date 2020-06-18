@@ -2,9 +2,10 @@ package com.example.springboot.entities;
 
 import java.util.Date;
 
-public class Employee {
+public class Employee
+{
 
-	private Integer id;
+    private Integer id;
     private String lastName;
 
     private String email;
@@ -13,55 +14,69 @@ public class Employee {
     private Department department;
     private Date birth;
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public String getLastName() {
+    public String getLastName()
+    {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName)
+    {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email)
+    {
         this.email = email;
     }
 
-    public Integer getGender() {
+    public Integer getGender()
+    {
         return gender;
     }
 
-    public void setGender(Integer gender) {
+    public void setGender(Integer gender)
+    {
         this.gender = gender;
     }
 
-    public Department getDepartment() {
+    public Department getDepartment()
+    {
         return department;
     }
 
-    public void setDepartment(Department department) {
+    public void setDepartment(Department department)
+    {
         this.department = department;
     }
 
-    public Date getBirth() {
+    public Date getBirth()
+    {
         return birth;
     }
 
-    public void setBirth(Date birth) {
+    public void setBirth(Date birth)
+    {
         this.birth = birth;
     }
+
     public Employee(Integer id, String lastName, String email, Integer gender,
-                    Department department) {
+                    Department department)
+    {
         super();
         this.id = id;
         this.lastName = lastName;
@@ -71,11 +86,13 @@ public class Employee {
         this.birth = new Date();
     }
 
-    public Employee() {
+    public Employee()
+    {
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Employee{" +
                 "id=" + id +
                 ", lastName='" + lastName + '\'' +
@@ -85,6 +102,6 @@ public class Employee {
                 ", birth=" + birth +
                 '}';
     }
-	
-	
+
+
 }

@@ -5,15 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>wu hu ~</h1>
-    <div id="div01" class="myDiv" th:id="${hiya}" th:class="${hiya}" th:text="${hiya}">这是显示欢迎信息的</div>
-    <hr/>
-    <div th:text="${hiya}"></div>
-    <div th:utext="${hiya}"></div>
+<h1>wu hu ~</h1>
+<div id="div01" class="myDiv" th:id="${hiya}" th:class="${hiya}" th:text="${hiya}">这是显示欢迎信息的</div>
+<hr/>
+<div th:text="${hiya}"></div>
+<div th:utext="${hiya}"></div>
 <!--     map.put("hiya","<h1>shi ni ya</h1>");忽略转义，忽略了<h1></h1>-->
-    <hr/>
+<hr/>
 <h4 th:text="${user}" th:each="user: ${users}"></h4>
-    <hr/>
+<hr/>
 <h4>
     <span th:each="user:${users}">[[${user}]]</span>
 </h4>

@@ -30,7 +30,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-<!--        引入Jetty容器-->
+        <!--        引入Jetty容器-->
         <dependency>
             <artifactId>spring-boot-starter-jetty</artifactId>
             <groupId>org.springframework.boot</groupId>
@@ -41,7 +41,7 @@
             <artifactId>jquery</artifactId>
             <version>3.5.1</version>
         </dependency>
-<!--        引入bootstrap-->
+        <!--        引入bootstrap-->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
