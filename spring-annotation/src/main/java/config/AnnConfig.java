@@ -1,10 +1,7 @@
 package config;
 
 import bean.Person;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
+import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +22,7 @@ public class AnnConfig
     public Person person()
     {
         Person person = new Person("liu",22);
+        System.out.println("new对象已完成");
         return person;
     }
 }

@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3abae1ae-8996-40de-8bfc-a81b26f8b346" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/AnnConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/MainApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/controller/BookController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/dao/BookDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/service/BookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/IocTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/condition/LinuxCondition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/condition/WindowsCondition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/AnnConfig2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringCore_note.md" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringCore_note.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/AnnConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/AnnConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/IocTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/IocTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config/AnnConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/AnnConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/example/MainApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/example/MainApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/IocTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/IocTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,10 +52,25 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
-  <component name="RunManager" selected="JUnit.IocTest.test1">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="config" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.IocTest.test4">
     <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="example.MainApplication" />
       <module name="spring-annotation" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IocTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-annotation" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="IocTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -66,9 +85,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="IocTest.test3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-annotation" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="IocTest" />
+      <option name="METHOD_NAME" value="test3" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IocTest.test4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-annotation" />
+      <useClassPathOnly />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="IocTest" />
+      <option name="METHOD_NAME" value="test4" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-Dos.name=linux" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.MainApplication" />
+      <item itemvalue="JUnit.IocTest.test" />
+      <item itemvalue="JUnit.IocTest.test1" />
+      <item itemvalue="JUnit.IocTest.test3" />
+      <item itemvalue="JUnit.IocTest.test4" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.IocTest.test4" />
+        <item itemvalue="JUnit.IocTest.test3" />
         <item itemvalue="JUnit.IocTest.test1" />
+        <item itemvalue="JUnit.IocTest.test" />
         <item itemvalue="Application.MainApplication" />
       </list>
     </recent_temporary>
@@ -85,7 +137,7 @@
       <updated>1592654340016</updated>
       <workItem from="1592654341773" duration="3618000" />
       <workItem from="1592658014198" duration="208000" />
-      <workItem from="1592658383291" duration="1661000" />
+      <workItem from="1592658383291" duration="11823000" />
     </task>
     <servers />
   </component>
@@ -93,26 +145,34 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1261" y="255" key="#com.intellij.ide.util.MemberChooser" timestamp="1592654898776">
+    <state x="828" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592747709260">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1261" y="255" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1592654898776" />
-    <state width="882" height="292" key="GridCell.Tab.0.bottom" timestamp="1592660043610">
+    <state x="828" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592747709260" />
+    <state x="1261" y="255" key="#com.intellij.ide.util.MemberChooser" timestamp="1592745843487">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="882" height="292" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592660043610" />
-    <state width="882" height="292" key="GridCell.Tab.0.center" timestamp="1592660043609">
+    <state x="1261" y="255" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1592745843487" />
+    <state width="882" height="292" key="GridCell.Tab.0.bottom" timestamp="1592747421596">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="882" height="292" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592660043609" />
-    <state width="882" height="292" key="GridCell.Tab.0.left" timestamp="1592660043609">
+    <state width="882" height="292" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592747421596" />
+    <state width="882" height="292" key="GridCell.Tab.0.center" timestamp="1592747421595">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="882" height="292" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592660043609" />
-    <state width="882" height="292" key="GridCell.Tab.0.right" timestamp="1592660043609">
+    <state width="882" height="292" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592747421595" />
+    <state width="882" height="292" key="GridCell.Tab.0.left" timestamp="1592747421595">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="882" height="292" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592660043609" />
+    <state width="882" height="292" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592747421595" />
+    <state width="882" height="292" key="GridCell.Tab.0.right" timestamp="1592747421596">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="882" height="292" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592747421596" />
+    <state x="1036" y="274" key="IDE.errors.dialog" timestamp="1592660598871">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1036" y="274" key="IDE.errors.dialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592660598871" />
     <state x="980" y="194" key="Maven.ArtifactSearchDialog" timestamp="1592655121302">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
