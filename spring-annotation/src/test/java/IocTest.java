@@ -1,6 +1,8 @@
+import bean.ColorFactoryBean;
 import bean.Person;
 import config.AnnConfig;
 import config.AnnConfig2;
+import config.AnnConfig3;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -70,6 +72,36 @@ public class IocTest
         //按类型获取组件，即查找Person的对象有哪些加入了容器
         Map<String, Person> beansOfType = applicationContext.getBeansOfType(Person.class);
         System.out.println(beansOfType);
-
+    }
+    @Test
+    public void test5()
+    {
+   //@Import测试
+        AnnotationConfigApplicationContext applicationContext =
+                new AnnotationConfigApplicationContext(AnnConfig2.class);
+        //获取容器中所有组件的名字
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        for (String name: beanDefinitionNames)
+        {
+            System.out.println(name);
+        }
+    }
+    @Test
+    public void test6()
+    {
+   //FactoryBean测试
+        AnnotationConfigApplicationContext applicationContext =
+                new AnnotationConfigApplicationContext(AnnConfig3.class);
+        //获取工厂bean调用getObject创建的对象
+        Object colorFactoryBean = applicationContext.getBean("cfBean");
+        Object colorFactoryBean1 = applicationContext.getBean("cfBean");
+        System.out.println("bean的类型："+colorFactoryBean.getClass());
+        System.out.println(colorFactoryBean==colorFactoryBean1);
+        //获得工厂bean本身
+        Object colorFactoryBean2 = applicationContext.getBean("&cfBean");
+        Object colorFactoryBean3 = applicationContext.getBean(ColorFactoryBean.class);
+        System.out.println("****************************");
+        System.out.println(colorFactoryBean2);
+        System.out.println(colorFactoryBean3);
     }
 }

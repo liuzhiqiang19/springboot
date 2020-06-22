@@ -2,16 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3abae1ae-8996-40de-8bfc-a81b26f8b346" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/condition/LinuxCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/condition/WindowsCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/AnnConfig2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/Color.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/ColorFactoryBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/MyBeanPostProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/RainBow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/Red.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/condition/MyImportBeanDefinitionRegistrar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/condition/MyImportSelector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/AnnConfig3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/AutowiredConf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/LifeCircleConf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/ValueConf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/person.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/AutowiredTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/LifeCircleTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ValueTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SpringCore_note.md" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringCore_note.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/AnnConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/AnnConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/AnnConfig2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/AnnConfig2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/dao/BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/dao/BookDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/service/BookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/IocTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/IocTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/AnnConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/AnnConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/example/MainApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/example/MainApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bean/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bean/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config/AnnConfig2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/AnnConfig2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/example/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/example/controller/BookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/example/dao/BookDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/example/dao/BookDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/example/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/example/service/BookService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/IocTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/IocTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,72 +75,76 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="config" />
     </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="bean" />
+      <recent name="condition" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.IocTest.test4">
-    <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="example.MainApplication" />
-      <module name="spring-annotation" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="IocTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AutowiredTest.test">
+    <configuration name="AutowiredTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-annotation" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="IocTest" />
+      <option name="MAIN_CLASS_NAME" value="AutowiredTest" />
       <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IocTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IocTest.test5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-annotation" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="IocTest" />
-      <option name="METHOD_NAME" value="test1" />
+      <option name="METHOD_NAME" value="test5" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IocTest.test3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IocTest.test6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-annotation" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="IocTest" />
-      <option name="METHOD_NAME" value="test3" />
+      <option name="METHOD_NAME" value="test6" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IocTest.test4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LifeCircleTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-annotation" />
-      <useClassPathOnly />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="IocTest" />
-      <option name="METHOD_NAME" value="test4" />
+      <option name="MAIN_CLASS_NAME" value="LifeCircleTest" />
+      <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-Dos.name=linux" />
-      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ValueTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-annotation" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ValueTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.MainApplication" />
-      <item itemvalue="JUnit.IocTest.test" />
-      <item itemvalue="JUnit.IocTest.test1" />
-      <item itemvalue="JUnit.IocTest.test3" />
-      <item itemvalue="JUnit.IocTest.test4" />
+      <item itemvalue="JUnit.IocTest.test5" />
+      <item itemvalue="JUnit.IocTest.test6" />
+      <item itemvalue="JUnit.LifeCircleTest.test" />
+      <item itemvalue="JUnit.ValueTest.test" />
+      <item itemvalue="JUnit.AutowiredTest.test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.IocTest.test4" />
-        <item itemvalue="JUnit.IocTest.test3" />
-        <item itemvalue="JUnit.IocTest.test1" />
-        <item itemvalue="JUnit.IocTest.test" />
-        <item itemvalue="Application.MainApplication" />
+        <item itemvalue="JUnit.AutowiredTest.test" />
+        <item itemvalue="JUnit.ValueTest.test" />
+        <item itemvalue="JUnit.LifeCircleTest.test" />
+        <item itemvalue="JUnit.IocTest.test6" />
+        <item itemvalue="JUnit.IocTest.test5" />
       </list>
     </recent_temporary>
   </component>
@@ -137,7 +160,7 @@
       <updated>1592654340016</updated>
       <workItem from="1592654341773" duration="3618000" />
       <workItem from="1592658014198" duration="208000" />
-      <workItem from="1592658383291" duration="11823000" />
+      <workItem from="1592658383291" duration="27669000" />
     </task>
     <servers />
   </component>
@@ -149,26 +172,30 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="828" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592747709260" />
-    <state x="1261" y="255" key="#com.intellij.ide.util.MemberChooser" timestamp="1592745843487">
+    <state x="1261" y="255" key="#com.intellij.ide.util.MemberChooser" timestamp="1592830548031">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1261" y="255" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1592745843487" />
-    <state width="882" height="292" key="GridCell.Tab.0.bottom" timestamp="1592747421596">
+    <state x="1261" y="255" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1592830548031" />
+    <state x="1186" y="315" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1592753635214">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="882" height="292" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592747421596" />
-    <state width="882" height="292" key="GridCell.Tab.0.center" timestamp="1592747421595">
+    <state x="1186" y="315" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592753635214" />
+    <state width="882" height="398" key="GridCell.Tab.0.bottom" timestamp="1592831120946">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="882" height="292" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592747421595" />
-    <state width="882" height="292" key="GridCell.Tab.0.left" timestamp="1592747421595">
+    <state width="882" height="398" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592831120946" />
+    <state width="882" height="398" key="GridCell.Tab.0.center" timestamp="1592831120946">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="882" height="292" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592747421595" />
-    <state width="882" height="292" key="GridCell.Tab.0.right" timestamp="1592747421596">
+    <state width="882" height="398" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592831120946" />
+    <state width="882" height="398" key="GridCell.Tab.0.left" timestamp="1592831120945">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="882" height="292" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592747421596" />
+    <state width="882" height="398" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592831120945" />
+    <state width="882" height="398" key="GridCell.Tab.0.right" timestamp="1592831120946">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="882" height="398" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592831120946" />
     <state x="1036" y="274" key="IDE.errors.dialog" timestamp="1592660598871">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

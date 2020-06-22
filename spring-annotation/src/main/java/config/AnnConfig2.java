@@ -1,10 +1,16 @@
 package config;
 
+import bean.Color;
 import bean.Person;
+import bean.Red;
 import condition.LinuxCondition;
+import condition.MyImportBeanDefinitionRegistrar;
+import condition.MyImportSelector;
 import condition.WindowsCondition;
 import org.springframework.context.annotation.*;
-
+//@Import({Color.class, Red.class})
+//@Import(MyImportSelector.class)
+@Import({MyImportBeanDefinitionRegistrar.class,Color.class, Red.class})
 @Configuration
 public class AnnConfig2
 {

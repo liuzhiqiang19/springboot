@@ -1,10 +1,15 @@
 package bean;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class Person
 {
+    @Value("liu")
     String name;
+    @Value("#{22-2}")
     int age;
-
+    @Value("${person.nickName}")
+    String nickName;
     public Person()
     {
     }
@@ -13,6 +18,13 @@ public class Person
     {
         this.name = name;
         this.age = age;
+    }
+
+    public Person(String name, int age, String nickName)
+    {
+        this.name = name;
+        this.age = age;
+        this.nickName = nickName;
     }
 
     public String getName()
@@ -41,6 +53,7 @@ public class Person
         return "Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", nickName='" + nickName + '\'' +
                 '}';
     }
 }
