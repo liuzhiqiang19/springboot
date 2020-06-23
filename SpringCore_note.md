@@ -76,3 +76,4 @@ public class MyImportSelector implements ImportSelector //实现ImportSelector
     - @Primary 该组件是首选的
     - @Qualifier("bookDao2") 指定装配的对象
     - @Autowired(required = false) 装配的对象不存在时返回null，不会报异常
+    - 
