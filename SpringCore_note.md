@@ -61,6 +61,8 @@ public class MyImportSelector implements ImportSelector //实现ImportSelector
     - postProcessBeforeInitialization：初始化之前的处理
     - postProcessAfterInitialization：初始化之后的处理
 
+- @Bean  把方法的返回值加入容器
+
 ### 属性赋值
 - @Value
     - @Value("liu")     (Person类中)
@@ -69,6 +71,10 @@ public class MyImportSelector implements ImportSelector //实现ImportSelector
         - @PropertySource(value={"classpath:/person.properties"})   (配置类中，类上面)
         - @Value("${person.nickName}")      (Person类中)
 
+- @ConfigurationProperties
+    - 支持批量导入、校验、复杂类型数据(map、list),首选
+    - @Value功能少，适合单个属性的赋值
+
 ### 自动装配
 - @Autowired 自动注入
     - 默认按类型去容器找组件
@@ -76,5 +82,5 @@ public class MyImportSelector implements ImportSelector //实现ImportSelector
     - @Primary 该组件是首选的
     - @Qualifier("bookDao2") 指定装配的对象
     - @Autowired(required = false) 装配的对象不存在时返回null，不会报异常
-
+    - 通常写在属性上面，还可以放在构造器、方法、参数上，都是从容器中取值
 

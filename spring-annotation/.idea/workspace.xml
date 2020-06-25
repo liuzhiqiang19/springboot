@@ -2,36 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3abae1ae-8996-40de-8bfc-a81b26f8b346" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/Color.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/ColorFactoryBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/MyBeanPostProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/RainBow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/Red.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/condition/MyImportBeanDefinitionRegistrar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/condition/MyImportSelector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/AnnConfig3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/AutowiredConf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/LifeCircleConf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/ValueConf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/person.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/AutowiredTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/LifeCircleTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ValueTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SpringCore_note.md" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringCore_note.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/AnnConfig2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/AnnConfig2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/dao/BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/dao/BookDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/example/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/IocTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/IocTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bean/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bean/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/AnnConfig2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/AnnConfig2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/example/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/example/controller/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/example/dao/BookDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/example/dao/BookDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/example/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/example/service/BookService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/IocTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/IocTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +132,7 @@
       <updated>1592654340016</updated>
       <workItem from="1592654341773" duration="3618000" />
       <workItem from="1592658014198" duration="208000" />
-      <workItem from="1592658383291" duration="28389000" />
+      <workItem from="1592658383291" duration="28604000" />
     </task>
     <servers />
   </component>
@@ -180,29 +152,29 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1186" y="315" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592753635214" />
-    <state width="882" height="398" key="GridCell.Tab.0.bottom" timestamp="1592831778946">
+    <state width="882" height="398" key="GridCell.Tab.0.bottom" timestamp="1593095738207">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="882" height="398" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592831778946" />
-    <state width="882" height="398" key="GridCell.Tab.0.center" timestamp="1592831778946">
+    <state width="882" height="398" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1593095738207" />
+    <state width="882" height="398" key="GridCell.Tab.0.center" timestamp="1593095738207">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="882" height="398" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592831778946" />
-    <state width="882" height="398" key="GridCell.Tab.0.left" timestamp="1592831778945">
+    <state width="882" height="398" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1593095738207" />
+    <state width="882" height="398" key="GridCell.Tab.0.left" timestamp="1593095738206">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="882" height="398" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592831778945" />
-    <state width="882" height="398" key="GridCell.Tab.0.right" timestamp="1592831778946">
+    <state width="882" height="398" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1593095738206" />
+    <state width="882" height="398" key="GridCell.Tab.0.right" timestamp="1593095738207">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="882" height="398" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592831778946" />
+    <state width="882" height="398" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1593095738207" />
     <state x="1036" y="274" key="IDE.errors.dialog" timestamp="1592660598871">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1036" y="274" key="IDE.errors.dialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592660598871" />
-    <state x="980" y="194" key="Maven.ArtifactSearchDialog" timestamp="1592655121302">
+    <state x="980" y="194" key="Maven.ArtifactSearchDialog" timestamp="1593095602234">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="980" y="194" key="Maven.ArtifactSearchDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592655121302" />
+    <state x="980" y="194" key="Maven.ArtifactSearchDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1593095602234" />
   </component>
 </project>

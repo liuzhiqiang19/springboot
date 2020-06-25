@@ -3,9 +3,11 @@ package example.service;
 import example.dao.BookDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 @Service
+
 public class BookService
 {
     @Qualifier("bookDao") //指定装配的对象
