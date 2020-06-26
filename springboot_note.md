@@ -56,9 +56,20 @@ pets:
 或
 pets: {cat,dog,fish}
 ```
-  - 全局配置文件、指定配置文件
+- 全局配置文件、指定配置文件
     - @PropertySource(value = {"classpath: person.properties"})     //从指定配置文件获取初始值
     - @ConfigurationProperties(prefix = "person")     //从全局配置文件获取初始值
+
+- 配置文件占位符
+    - ${}
+    - 可以给属性赋值为随机数(person.age=${random.int})
+    - 可以给定默认值，找不到其他值的时候生效(${person.name:liu})
+
+- Profile
+    - 多Profile文件：application.properties(默认环境),application-dev.properties(生产环境),application-test.properties(测试环境)
+        - 切换到测试环境：在application.properties中添加=>spring.profiles.active=test
+        - 命令行方式切换到测试环境：打包(只能打包src文件夹下的文件) =>运行jar包 => --spring.profiles.active=test
+    - application.yml文件可使用多文档块(---)，多个环境写在同一个文件中
 
 - 配置文件的优先级（不同位置的）
   - 由高到低：
@@ -67,13 +78,15 @@ pets: {cat,dog,fish}
     - classpath:/config/    //resources目录下的config文件夹中
     - classpath:/           //resources目录下
   - 高优先级覆盖低优先级，但4个位置的主配置文件都会加载。相同部分，低优先级的被覆盖；不同部分，低优先级的仍然有效（互补配置）
+  - 命令行方式指定配置文件：运行jar包 => --spring.config.location=xxx.properties(带上全路径)    ,该文件可以在任意盘的任意位置下，
 
 - 外部配置文件加载顺序
-  - 命令行参数
-  - ...
-  - 带spring.profile的配置文件（先jar包外部后内部）
-  - 不带spring.profile的配置文件（先jar包外部后内部）
-  - spring.profile=dev  //该配置文件在生产环境下使用
+    - 高优先级覆盖低优先级，所有配置文件形成互补配置
+      - 命令行参数(适合配置参数很少的情况)
+      - ...
+      - application-dev.properties、application-test.properties等文件(application.yml:带spring.profile的配置文件)(先jar包外部后内部)
+      - application.properties文件(application.yml:不带spring.profile的配置文件)(先jar包外部后内部)
+      - spring.profile=dev  //该配置文件在生产环境下使用
 
 - 自动配置原理
     - springboot启动的时候加载主配置类，开启主配置功能@EnableAutoConfiguration
@@ -140,9 +153,9 @@ public class HelloWorld {
 - 常用语句
   - LoggerFactory.getLogger --> logger.info...
   - 配置文件中：
-    - logging.file
+    - logging.file  日志保存到指定的文件
     - logging.level
-    - logging.path
+    - logging.path  指定路径，会自动生成一个日志文件
 ```java
     //记录器
     Logger logger = LoggerFactory.getLogger(getClass());
@@ -170,7 +183,7 @@ logging.path=/spring/log
 //logging.pattern.file=
 ```
 - 自定义配置文件(命名)
-  - logback-spring.xml：框架不加载日志的配置项，由springboot解析，可以使用高级profile功能，推荐使用这个来命名
+  - logback-spring.xml：框架不加载日志的配置项，由springboot解析，可以使用高级profile功能(开发环境输出的日志是一种格式，测试环境是另一种格式)，推荐使用这个来命名(然后把该文件放在类路径下即可)
   - logback.xml： 直接被日志框架所识别
   
 ![放置规则](自定义配置文件放置.jpg)
@@ -180,7 +193,7 @@ logging.path=/spring/log
   - 用initializr创建springboot应用，选择需要的模块
   - 根据场景写配置文件
   - 写业务代码
-- 静态资源的映射规则(I)-->webjars(公共资源)（https://www.webjars.org/）
+- 静态资源的映射规则(I)-->webjars(公共资源、以jar包的方式引入资源)（https://www.webjars.org/）
   - pom文件引入依赖
   - 所有/webjars/**，都去classpath: META-INF/resources/webjars/jquery下找资源
   - 直接访问它的资源：localhost:8080/webjars/jquery/3.5.1/jquery.js
