@@ -195,7 +195,7 @@ logging.path=/spring/log
   - 写业务代码
 - 静态资源的映射规则(I)-->webjars(公共资源、以jar包的方式引入资源)（https://www.webjars.org/）
   - pom文件引入依赖
-  - 所有/webjars/**，都去classpath: META-INF/resources/webjars/jquery下找资源
+  - 所有/webjars/**，都去classpath: META-INF/resources/webjars/下找资源
   - 直接访问它的资源：localhost:8080/webjars/jquery/3.5.1/jquery.js
   
 ```
@@ -318,9 +318,9 @@ I）Simple expressions:
       <p>Nationality: <span th:text="*{nationality}">Saturn</span>.</p>
       </div>
 
-      3. Message Expressions: #{...}  国际化内容
-      4. Link URL Expressions: @{...} 定义URL
-      5. Fragment Expressions: ~{...} 片段引用
+      1. Message Expressions: #{...}  国际化内容
+      2. Link URL Expressions: @{...} 定义URL
+      3. Fragment Expressions: ~{...} 片段引用
 II）Literals (字面量)
       Text literals: 'one text' , 'Another one!' ,…
       Number literals: 0 , 34 , 3.0 , 12.3 ,…
@@ -382,18 +382,19 @@ VII）Special tokens:
 ```
 - 扩展springMVC
     - 保留springboot的自动配置，并且添加自己的配置
-    - 编写配置类（添加@configuration),实现**WebMvcConfigurer**类，但不加 @EnableWebMvc
+    - 编写配置类（添加@configuration),继承**WebMvcConfigurer**类，重写方法，但不加 @EnableWebMvc
     - 完全控制Spring MVC，可以添加自己的@Configuration，注释@EnableWebMvc
-        - 不用自动配置的，全部自己配置，web模块所有自动配置全部失效，静态页面也不能访问
+        - 不用自动配置的东西，全部自己配置，web模块所有自动配置全部失效，静态页面也不能访问
+    - **xxxConfigurer**是扩展配置类
   
 - 1) crud实验
     - html页面放在templates文件夹下，其他资源(如css、img、jss)放在静态资源的文件夹下
     - 默认访问首页
 
 - 2) 国际化(根据浏览器默认语言而变化)
-      - 编写国际化配置文件，抽取页面需要显示的国际化消息（resource bundle，局部配置文件中）
-      - 设置spring.messages.basename (application.properties中)
-      - 去页面获取国际化的值(html页面中)
+      - 分别编写中英文的配置文件（添加resource bundle，局部配置文件中）
+      - 设置spring.messages.basename=i8n.login (application.properties中)
+      - 去页面获取国际化的值(html页面中添加 th:text="#{login.username}" )
 
 - 3) 国际化-->点击“中文”、“英文”实现中英文切换的国际化效果
       - 写自己的LocaleResolver(写出一个单独的类)
@@ -431,8 +432,8 @@ public class MyLocaleResolver implements LocaleResolver
 ```
 - 小技巧
     - IDEA的改动即时生效
-        - 禁用缓存(spring.thymeleaf.cache=false,全局配置文件)
-        - 重新编译(Build-->Build Project，前端的html页面，后端的仍需Rerun)
+        - 禁用缓存(spring.thymeleaf.cache=false,全局配置文件中)
+        - 重新编译(Build-->Build Project，仅限前端的html页面，后端的仍需Rerun)
 
 - 4) 登录、登录检测
     - 登录
