@@ -586,3 +586,30 @@ spring.datasource.url=jdbc:mysql://182.92.78.192:3306/jdbc
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
 - 使用指定的sql文件(如dep.sql),需在全局配置文件中添加：spring.datasource.schema=classpath:dep.sql
+
+## 七、 deploy springboot项目：
+
+- 用Dockerfile把项目(*.jar)制作成镜像，运行起来
+  
+- Dockerfile(在 /root/web 文件夹下):
+```
+touch Dockerfile
+...
+FROM openjdk:11.0.7-jdk
+ARG JAR_FILE=springboot-web.jar
+COPY ${JAR_FILE} /root/web/app.jar
+ENTRYPOINT ["java","-jar","/root/web/app.jar"]
+```
+- 创建镜像：
+```
+cd /root/web  //打开Dockerfile所在文件夹
+docker build -t myapp .
+```
+- 启动容器：
+```
+docker run -d -p 8080:8080 myapp
+```
+- 访问：
+```
+http://182.92.78.192:8080/
+```
