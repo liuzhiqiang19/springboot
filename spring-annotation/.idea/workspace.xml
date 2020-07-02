@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3abae1ae-8996-40de-8bfc-a81b26f8b346" name="Default Changelist" comment="" />
+    <list default="true" id="3abae1ae-8996-40de-8bfc-a81b26f8b346" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/AnnConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/AnnConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot_note.md" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot_note.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +41,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
@@ -131,6 +135,7 @@
       <workItem from="1592658014198" duration="208000" />
       <workItem from="1592658383291" duration="28604000" />
       <workItem from="1593693010590" duration="33000" />
+      <workItem from="1593699403494" duration="873000" />
     </task>
     <servers />
   </component>

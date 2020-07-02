@@ -482,7 +482,7 @@ public class LoginHandlerInterceptor implements HandlerInterceptor
 
 |     | 普通CRUD               | Restful CRUD     |
 | --- | ---------------------- | ---------------- |
-| 增  | addEmp?xxx             | emp--post        |
+| 增  | addEmp?xxx             | emp--POST        |
 | 删  | deleteEmp?id=1         | emp/{id}--DELETE |
 | 改  | updateEmp?id=xxx&XX=xx | emp/{id}--PUT    |
 | 查  | getEmp                 | emp--GET         |
@@ -587,7 +587,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
 - 使用指定的sql文件(如dep.sql),需在全局配置文件中添加：spring.datasource.schema=classpath:dep.sql
 
-## 七、 deploy springboot项目：
+## 七、 Deploy SpringBoot Project :
 
 - 用Dockerfile把项目(*.jar)制作成镜像，运行起来
   

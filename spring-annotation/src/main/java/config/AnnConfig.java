@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 },useDefaultFilters = false)
 public class AnnConfig
 {
-    @Bean("person1") //把方法加入容器，取名为person1
+    @Bean("person1") //把方法的返回值加入容器，取名为person1
     public Person person()
     {
         Person person = new Person("liu",22);
