@@ -244,7 +244,7 @@ logging.path=/spring/log
 
 - 静态资源的映射规则(II)-->/**(自己的资源)
   - 访问当前项目下的任何资源
-  - classpath是类路径，例如：src/main/java或src/main/resources，其下创建文件夹：
+  - classpath是类路径(src文件夹下)，例如：src/main/java或src/main/resources，其下创建文件夹：
       - "classpath:/META-INF/resources/"
     	- "classpath:/resources/"
     	- "classpath:/static/"(已有)
