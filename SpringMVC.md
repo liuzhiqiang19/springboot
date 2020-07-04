@@ -22,6 +22,7 @@
     - / 表示绝对路径
         - 被浏览器解析：/==http://ip:port/
         - 被服务器解析：/==http://ip:port/工程路径
+        - 重定向的需要加"/",其他的不用?(cmd后台运行)
 - HttpServletRequest、HttpServletResponse
 - 两个输出流
     - getOutputStream(),字节流,常用于下载

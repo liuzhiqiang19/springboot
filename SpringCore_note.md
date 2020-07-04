@@ -84,3 +84,10 @@ public class MyImportSelector implements ImportSelector //实现ImportSelector
     - @Autowired(required = false) 装配的对象不存在时返回null，不会报异常
     - 通常写在属性上面，还可以放在构造器、方法、参数上，都是从容器中取值
 
+### 注解释义
+| 注解        | 含义                                        |
+| ----------- | -------------------------------------------|
+| @Component  | 最普通的组件，可以被注入到spring容器进行管理  |
+| @Repository | 作用于持久层Dao                             |
+| @Service    | 作用于业务逻辑层                            |
+| @Controller | 作用于表现层,控制层                         |

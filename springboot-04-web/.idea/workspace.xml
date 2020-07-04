@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0941477-bccc-4592-846f-6638c783ac90" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../spring-annotation/src/main/java/config/AnnConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-annotation/src/main/java/config/AnnConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-crud/src/main/java/crudtest/config/MyWebMvcConf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-crud/src/main/java/crudtest/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-crud/src/main/java/crudtest/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-crud/src/main/java/crudtest/dao/DepartmentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-crud/src/main/java/crudtest/dao/EmployeeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-crud/src/main/java/crudtest/entities/Department.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-crud/src/main/java/crudtest/entities/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-crud/src/main/java/crudtest/interceptor/MyInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-crud/src/main/java/crudtest/myresolver/MyLocalResolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-crud/src/main/resources/i18n/login.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-crud/src/main/resources/i18n/login_en_US.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-crud/src/main/resources/i18n/login_zh_CN.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringCore_note.md" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringCore_note.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/springboot/entities/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/springboot/entities/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../springboot_note.md" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot_note.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +68,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -114,6 +128,14 @@
       <workItem from="1593692607678" duration="392000" />
       <workItem from="1593696430724" duration="2508000" />
       <workItem from="1593703613076" duration="3757000" />
+      <workItem from="1593818161023" duration="166000" />
+      <workItem from="1593818484202" duration="100000" />
+      <workItem from="1593818694367" duration="114000" />
+      <workItem from="1593849657307" duration="314000" />
+      <workItem from="1593856800904" duration="1821000" />
+      <workItem from="1593864584663" duration="11551000" />
+      <workItem from="1593879467771" duration="246000" />
+      <workItem from="1593880371525" duration="431000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1592229980456</created>
@@ -157,38 +179,38 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1220" y="298" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1592229881762" />
-    <state width="1539" height="333" key="GridCell.Tab.0.bottom" timestamp="1593707650350">
+    <state width="1420" height="332" key="GridCell.Tab.0.bottom" timestamp="1593875767852">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1539" height="333" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1593707650350" />
-    <state width="1539" height="333" key="GridCell.Tab.0.center" timestamp="1593707650350">
+    <state width="1420" height="332" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1593875767852" />
+    <state width="1420" height="332" key="GridCell.Tab.0.center" timestamp="1593875767852">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1539" height="333" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1593707650350" />
-    <state width="1539" height="333" key="GridCell.Tab.0.left" timestamp="1593707650350">
+    <state width="1420" height="332" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1593875767852" />
+    <state width="1420" height="332" key="GridCell.Tab.0.left" timestamp="1593875767852">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1539" height="333" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1593707650350" />
-    <state width="1539" height="333" key="GridCell.Tab.0.right" timestamp="1593707650350">
+    <state width="1420" height="332" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1593875767852" />
+    <state width="1420" height="332" key="GridCell.Tab.0.right" timestamp="1593875767852">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1539" height="333" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1593707650350" />
-    <state width="1539" height="333" key="GridCell.Tab.1.bottom" timestamp="1593707650351">
+    <state width="1420" height="332" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1593875767852" />
+    <state width="1420" height="332" key="GridCell.Tab.1.bottom" timestamp="1593875767852">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1539" height="333" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1593707650351" />
-    <state width="1539" height="333" key="GridCell.Tab.1.center" timestamp="1593707650351">
+    <state width="1420" height="332" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1593875767852" />
+    <state width="1420" height="332" key="GridCell.Tab.1.center" timestamp="1593875767852">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1539" height="333" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1593707650351" />
-    <state width="1539" height="333" key="GridCell.Tab.1.left" timestamp="1593707650351">
+    <state width="1420" height="332" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1593875767852" />
+    <state width="1420" height="332" key="GridCell.Tab.1.left" timestamp="1593875767852">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1539" height="333" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1593707650351" />
-    <state width="1539" height="333" key="GridCell.Tab.1.right" timestamp="1593707650351">
+    <state width="1420" height="332" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1593875767852" />
+    <state width="1420" height="332" key="GridCell.Tab.1.right" timestamp="1593875767852">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1539" height="333" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1593707650351" />
+    <state width="1420" height="332" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1593875767852" />
     <state width="987" height="360" key="GridCell.Tab.2.bottom" timestamp="1591471688840">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -213,14 +235,18 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="970" y="198" key="Maven.ArtifactSearchDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592216123625" />
-    <state x="880" y="172" key="SettingsEditor" timestamp="1593267871057">
+    <state x="880" y="172" key="SettingsEditor" timestamp="1593857258662">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="880" y="172" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1593267871057" />
+    <state x="880" y="172" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1593857258662" />
     <state x="1032" y="276" key="Vcs.Push.Dialog.v2" timestamp="1592230037657">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1032" y="276" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1592230037657" />
+    <state x="435" y="212" key="new project wizard" timestamp="1593856852209">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="435" y="212" key="new project wizard/0.0.1920.1080@0.0.1920.1080" timestamp="1593856852209" />
     <state x="1106" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1591971391754">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

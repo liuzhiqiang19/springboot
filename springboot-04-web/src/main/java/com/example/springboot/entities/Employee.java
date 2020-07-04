@@ -83,7 +83,7 @@ public class Employee
         this.email = email;
         this.gender = gender;
         this.department = department;
-        this.birth = new Date();
+        this.birth = new Date();    //不写在构造器的参数中？
     }
 
     public Employee()

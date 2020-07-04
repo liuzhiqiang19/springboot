@@ -382,7 +382,7 @@ VII）Special tokens:
 ```
 - 扩展springMVC
     - 保留springboot的自动配置，并且添加自己的配置
-    - 编写配置类（添加@configuration),继承**WebMvcConfigurer**类，重写方法，但不加 @EnableWebMvc
+    - 编写配置类（添加@configuration),实现**WebMvcConfigurer**类，重写方法，但不加 @EnableWebMvc
     - 完全控制Spring MVC，可以添加自己的@Configuration，注释@EnableWebMvc
         - 不用自动配置的东西，全部自己配置，web模块所有自动配置全部失效，静态页面也不能访问
     - **xxxConfigurer**是扩展配置类
