@@ -613,3 +613,111 @@ docker run -d -p 8080:8080 myapp
 ```
 http://182.92.78.192:8080/
 ```
+## 八、 编写REST Controller
+- GET
+
+```java
+//请求一个包含 taco 设计的列表
+@RestController //有@RestController，无需Model。它告诉 Spring，控制器中的所有处理程序方法都
+                //应该将它们的返回值直接写入响应体，而不是在模型中被带到视图中进行呈现
+@RequestMapping(path="/design", produces="application/json")    // produces 指定了 DesignTacoController 中的任何处理程序方法只
+                                                        //在请求的 Accept 头包含 “application/json” 时才处理请求
+                                                        //这限制了 API 只生成 JSON 结果
+@CrossOrigin(origins="*")   //@CrossOrigin 允许来自任何域的客户端使用 API(Web、手机都行?)
+public class DesignTacoController {
+
+    private TacoRepository tacoRepo;
+
+    @Autowired
+    EntityLinks entityLinks;
+
+    public DesignTacoController(TacoRepository tacoRepo) {
+        this.tacoRepo = tacoRepo;
+    }
+
+    @GetMapping("/recent")  // 处理 /design/recent 接口的 GET 请求
+    public Iterable<Taco> recentTacos() {
+        PageRequest page = PageRequest.of(
+            0, 12, Sort.by("createdAt").descending());
+        return tacoRepo.findAll(page).getContent();
+    }
+}
+```
+
+- POST
+  
+```java
+@PostMapping(consumes="application/json")   
+// consumer 属性用于处理输入，那么 produces 就用于处理输出。这里使用 consumer 属性，表示该方法只处理 
+// Content-type 与 application/json 匹配的请求
+@ResponseStatus(HttpStatus.CREATED) //状态 201（CREATED）告诉客户机，请求不仅成功了，而且还创建了一个资源
+public Taco postTaco(@RequestBody Taco taco) {  
+//@RequestBody 注解确保将请求体中的 JSON 绑定到 Taco 对象。
+//如果没有它，Spring MVC 会假设将请求参数（查询参数或表单参数）绑定到 Taco 对象(有什么区别?)
+    return tacoRepo.save(taco);
+}
+```
+- PUT
+
+```java
+@PutMapping("/{orderId}")
+public Order putOrder(@RequestBody Order order) {
+return repo.save(order);
+}
+```
+- DELETE
+
+```java
+@DeleteMapping("/{orderId}")
+@ResponseStatus(code=HttpStatus.NO_CONTENT)
+public void deleteOrder(@PathVariable("orderId") Long orderId) {
+try {
+repo.deleteById(orderId);
+} catch (EmptyResultDataAccessException e) {}
+}
+```
+
+## 九、使用 RestTemplate 调用 REST 端点
+- 使用范围?
+```java
+@Bean  //实例化并注册到容器
+public RestTemplate restTemplate() {
+return new RestTemplate();
+}
+```
+- GET
+
+```java
+//通过ID获取一个 Ingredient 对象
+public Ingredient getIngredientById(String ingredientId) {
+return rest.getForObject("http://localhost:8080/ingredients/{id}",
+Ingredient.class, ingredientId);
+}
+```
+- POST
+  
+```java
+public Ingredient createIngredient(Ingredient ingredient) {
+return rest.postForObject("http://localhost:8080/ingredients",
+ingredient,
+Ingredient.class);
+}
+```
+- PUT
+
+```java
+public void updateIngredient(Ingredient ingredient) {
+rest.put("http://localhost:8080/ingredients/{id}",
+ingredient,
+ingredient.getId());
+}
+```
+
+- DELETE
+
+```java
+public void deleteIngredient(Ingredient ingredient) {
+rest.delete("http://localhost:8080/ingredients/{id}",
+ingredient.getId());
+}
+```
