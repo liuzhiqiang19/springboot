@@ -91,3 +91,19 @@ public class MyImportSelector implements ImportSelector //实现ImportSelector
 | @Repository | 作用于持久层Dao                             |
 | @Service    | 作用于业务逻辑层                            |
 | @Controller | 作用于表现层,控制层                         |
+
+### AOP
+- 概念
+    - 切面(aspect)
+    - 通知(advice)
+        - 切面需要完成的工作
+    - 切点(pointcut)
+        - 明确的类、方法
+    - 连接点(join point)
+        - 插入切面的点(时机)
+    - 引入(introduction)
+        - 添加新的方法、属性
+    - 织入(weaving)
+        - 把切面应用到目标对象并创建新的代理对象
+
+- AspectJ 风格的AOP
