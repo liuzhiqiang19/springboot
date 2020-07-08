@@ -613,7 +613,7 @@ docker run -d -p 8080:8080 myapp
 ```
 http://182.92.78.192:8080/
 ```
-## 八、 编写REST Controller
+## 八、 编写 REST Controller
 - GET
 
 ```java
@@ -721,3 +721,4 @@ rest.delete("http://localhost:8080/ingredients/{id}",
 ingredient.getId());
 }
 ```
+
